@@ -1,11 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
 
-import { motion } from "framer-motion";
+import { HiDownload } from "react-icons/hi";
 
-import anish from "@/public/anish.png";
+import { motion } from "framer-motion";
 import Spline from "@splinetool/react-spline";
 
 const letters =
@@ -35,7 +34,7 @@ export default function Hero() {
                 return target.dataset.value![index];
               }
 
-              return letters[Math.floor(Math.random() * 26)];
+              return letters[Math.floor(Math.random() * 15)];
             })
             .join("");
 
@@ -59,9 +58,10 @@ export default function Hero() {
 
   return (
     <section className="flex items-center">
-      <div className="flex-col items-center justify-center">
+      <div className="flex-col items-center justify-center pl-[15rem] mr-[10rem] w-[32.5rem] ">
+        <p className="text-blue-400  items-center text-lg">Hello! I'm</p>
         <motion.div
-          className="flex items-center justify-center "
+          className="r "
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
@@ -70,40 +70,47 @@ export default function Hero() {
         >
           <h1
             onMouseOver={handleMouseOver}
-            data-value="ANISH.DEV"
-            className="text-gray-400 text-[3rem] tracking-tighter  pt-4"
+            data-value="ANISH KULANDAISAMY"
+            className="text-gray-200 text-[2.5rem] tracking-tighter truncate  w-[40rem]"
             ref={headingRef}
           >
-            ANISH.DEV
+            ANISH.KULANDAISAMY
           </h1>
         </motion.div>
         <motion.div
-          className="flex items-center justify-center"
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
             delay: 0.1,
           }}
         >
-          <h1 className="text-gray-400 text-[2rem] tracking-tighter pt-4 ">
+          <h1 className="text-gray-400 text-[2rem] tracking-tighter ">
             FULL STACK DEVELOPER
           </h1>
         </motion.div>
         <motion.div
-          className="flex items-center justify-center"
+          className="flex items-center flex-nowrap w-[32.5rem]"
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
             delay: 0.1,
           }}
         >
-          <p className="text-gray-400 pt-5 text-[1.5rem] tracking-wide">
+          <p className="flex text-gray-400  text-[1.25rem] tracking-wide pt-2 ">
             Building digital products, brands, and experience.
           </p>
         </motion.div>
+        <a
+          className="group bg-gradient-to-l from-rose-400 via-fuchsia-500 to-indigo-500 text-gray-800 px-4 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 w-[10rem] mt-4"
+          href="/CV.pdf"
+          download
+        >
+          Download CV{" "}
+          <HiDownload className="opacity-60 group-hover:translate-y-1 transition" />
+        </a>
       </div>
       <div className="flex w-[48rem] h-[48rem] ml-15 pl-20">
-      <Spline scene="https://prod.spline.design/NO8HW-T3LYEvy4ro/scene.splinecode" />
+        <Spline scene="https://prod.spline.design/NO8HW-T3LYEvy4ro/scene.splinecode" />
       </div>
       {/*         <motion.div
           initial={{ opacity: 0, scale: 0 }}
